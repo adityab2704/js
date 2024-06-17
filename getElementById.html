@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetElementBy Id</title>
+  </head>
+  <body>
+    <p id="uName">Akshay</p>
+    <p id="uName">Dev</p>
+    <p id="uName">Neha</p>
+  </body>
+</html>
+
+<script>
+  const uNameElem = document.getElementById("uName");
+  console.log(
+    "uNameElem: ",
+    uNameElem,
+    uNameElem.innerText,
+    uNameElem.textContent
+  );
+  console.log("uNameElem.innerText: ", uNameElem.innerText);
+  console.log("uNameElem.textContent: ", uNameElem.textContent);
+</script>
