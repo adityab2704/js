@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Elem</title>
+
+    <style>
+      /*  .card {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border: 1px solid silver;
+        padding: 12px;      
+        gap: 12px;  
+      } */
+    </style>
+  </head>
+  <body>
+    <ul id="products-list"></ul>
+  </body>
+</html>
+
+<script>
+  /**
+   * 1. Define a list of products
+   * 2. Grab the list container
+   * 3. iterate the list & render the UI
+   */
+
+  const products = [
+    {
+      id: 1,
+      name: "Apple iPhone 15 Pro Max",
+    },
+    {
+      id: 2,
+      name: "Apple iPhone 14 Pro Max",
+    },
+    {
+      id: 3,
+      name: "Apple iPhone 13 Pro Max",
+    },
+    {
+      id: 4,
+      name: "Samsung S24 Ultra",
+    },
+  ];
+
+  const productListElem = document.getElementById("products-list");
+
+  for (let i = 0; i < products.length; i++) {
+    const liItem = document.createElement("li");
+    const divElem = document.createElement("div");
+    const pElem = document.createElement("p");
+    const deleteBtn = document.createElement("button");
+
+    divElem.className = "card";
+
+    console.log("products[i]", i, products[i].name);
+    pElem.innerText = products[i].name;
+    liItem.id = products[i].id;
+
+    deleteBtn.innerText = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      //liItem.remove();
+
+      // Get element by Id
+      // If found, Then remove
+
+      const response = confirm(`Do you want to delete ${products[i].name}?`);
+      console.log("Response: ", response);
+      if (!response) {
+        console.log("User don't want to delete");
+      } else {
+        liItem.remove();
+      } 
+    });
+
+   // divElem.appendChild(pElem); // <div><p>Data</p></div>
+    divElem.appendChild(deleteBtn); // <div><p>Data</p><button>delete</button></div>
+
+    liItem.appendChild(divElem); // <li><div><p>Data</p><button>delete</button></div></li>
+
+    productListElem.appendChild(liItem); // <ul><li><div><p>Data</p><button>delete</button></div></li></ul>
+  }
+</script>

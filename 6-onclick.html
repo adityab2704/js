@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnClick</title>
+  </head>
+  <body>
+    <button id="btn-red">Change BG to Red</button>
+    <button id="btn-blue">Change BG to Blue</button>
+  </body>
+</html>
+
+<script>
+  const btnRedElem = document.getElementById("btn-red");
+  const btnBlueElem = document.getElementById("btn-blue");
+
+  // Add Event Listener
+  btnBlueElem.addEventListener("click", () => {
+    document.body.style.backgroundColor = "blue";
+  });
+
+  btnRedElem.addEventListener("click", () => {
+    document.body.style.backgroundColor = "red";
+  });
+</script>

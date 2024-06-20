@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Elem</title>
+  </head>
+  <body>
+    <ul id="products-list"></ul>
+  </body>
+</html>
+
+<script>
+  /**
+   * 1. Define a list of products
+   * 2. Grab the list container
+   * 3. iterate the list & render the UI
+   */
+
+  const products = [
+    {
+      id: 1,
+      name: "Apple iPhone 15 Pro Max",
+    },
+    {
+      id: 2,
+      name: "Apple iPhone 14 Pro Max",
+    },
+    {
+      id: 3,
+      name: "Apple iPhone 13 Pro Max",
+    },
+    {
+      id: 4,
+      name: "Samsung S24 Ultra",
+    },
+  ];
+
+  const productListElem = document.getElementById("products-list");
+
+  for (let i = 0; i < products.length; i++) {
+    const liItem = document.createElement("li");
+    const divElem = document.createElement("div");
+    const pElem = document.createElement("p");
+    const deleteBtn = document.createElement("button");
+
+    console.log("products[i]", i, products[i].name);
+    pElem.innerText = products[i].name;
+    liItem.id = products[i].id;
+
+    deleteBtn.innerText = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      liItem.remove();
+    });
+
+    divElem.appendChild(pElem);
+    divElem.appendChild(deleteBtn);
+
+    liItem.appendChild(divElem);
+
+    productListElem.appendChild(liItem);
+  }
+</script>
